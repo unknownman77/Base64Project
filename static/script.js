@@ -23,13 +23,12 @@ async function performOperation(operationType) {
             outputResult.textContent = data.result;
         } else {
             outputResult.textContent = `Error: ${data.error || 'Something went wrong.'}`;
-            outputResult.style.color = 'red'; // Indicate error
+            outputResult.style.color = 'red';
         }
     } catch (error) {
         outputResult.textContent = `Network error: ${error.message}`;
         outputResult.style.color = 'red';
     } finally {
-        // Reset color if it was changed due to error
         if (outputResult.style.color === 'red' && response.ok) {
             outputResult.style.color = 'inherit';
         }
